@@ -8,31 +8,29 @@ public class Fibonachi {
         // to see how IntelliJ IDEA suggests fixing it.
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите количество элементов в последовтаельности чисел Фибоначчи ...");
-        int N = scanner.nextInt();
+        int n = scanner.nextInt();
 
-        if(N<=0) System.out.println("Введено некрректное число");
+        if(n <= 0) System.out.println("Введено некрректное число");
         else {
-            switch (N) {
-                case (1): {
-                    System.out.println("0");
-                    break;
+            int old = 0, cur = 1, next;
+            for (int kol = 0; kol < n; kol++)
+            {
+                if(kol == 0)
+                {
+                    System.out.print("0, ");
+                    continue;
                 }
-                case (2): {
-                    System.out.println("0, 1");
-                    break;
+                if(kol == 1)
+                {
+                    System.out.print("1, ");
+                    continue;
                 }
-                default:
-                    int a_old = 0, a_cur = 1, a_next;
-                    System.out.print("0, 1, ");
-                    int kol = 2;
-                    do {
-                        a_next = a_cur + a_old;
-                        System.out.printf("%d, ", a_next);
-                        kol++;
-                        a_old = a_cur;
-                        a_cur = a_next;
-                    } while (kol < N);
+                next = cur + old;
+                System.out.printf("%d, ", next);
+                old = cur;
+                cur = next;
             }
+
         }
 
 
