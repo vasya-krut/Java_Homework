@@ -58,7 +58,7 @@ public class BlackJack {
         playerCadShow(playerCardKol);
         int playerPoints1 = 0; // очки игрока с первым весом
         int playerPoints2 = 0; // очки игрока со вторым весом
-        for(int i =0; i < playerCardKol; i++)
+        for(int i = 0; i < playerCardKol; i++)
         {
             playerPoints1 += cardDesk.getCardWeight1(playerCard[i]);
             if(cardDesk.cardIsTuz(playerCard[i]))
