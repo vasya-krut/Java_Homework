@@ -11,7 +11,7 @@ public class Main {
 
         System.out.println("Для выбора доступно 3 героя:");
         for(int i = 0; i < 3; i++)
-            System.out.println(i + "-" + heroArray[i].toString());
+            System.out.println(i + "-" + heroArray[i]);
         System.out.println("Какого героя вы выберите?");
         Scanner scan = new Scanner(System.in);
         int vyborPlayer = scan.nextInt();
@@ -21,8 +21,8 @@ public class Main {
             vyborComp = rand.nextInt(3);
 
         while (true) {
-            System.out.println(heroArray[vyborPlayer].toString());
-            System.out.println(heroArray[vyborComp].toString());
+            System.out.println(heroArray[vyborPlayer]);
+            System.out.println(heroArray[vyborComp]);
 
             int playerAttack = rand.nextInt(heroArray[vyborPlayer].atack()+1);
             heroArray[vyborComp].getDamage(playerAttack);
