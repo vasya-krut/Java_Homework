@@ -1,14 +1,16 @@
-abstract class WeaponClass implements Weapon{
-    final int damage;
-    final String weaponName;
+package Weapon;
 
-    WeaponClass(int damage, String weaponName){
+public class WeaponImpl implements Weapon{
+    private final int damage;
+    public final String weaponName;
+
+    public WeaponImpl(int damage, String weaponName){
         this.damage = damage;
         this.weaponName = weaponName;
     }
 
     @Override
-    public int atack() {
+    public int weaponDamage() {
         return damage;
     }
 
