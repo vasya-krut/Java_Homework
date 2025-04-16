@@ -2,15 +2,17 @@ package Hero;
 
 import Weapon.WeaponImpl;
 
+import java.util.Random;
+
 public class HeroImpl implements Hero {
 
     private int health;
-    public final String HERONAME;
-    private final WeaponImpl weapon;
+    private final String heroName;
+    private final WeaponImpl weapon; //WeaponImpl - это класс, а Weapon интерфейс
     public HeroImpl(WeaponImpl weapon, int health, String name) {
         this.weapon = weapon;
         this.health = health;
-        this.HERONAME = name;
+        this.heroName = name;
     }
 
     @Override
@@ -19,20 +21,27 @@ public class HeroImpl implements Hero {
     }
 
     @Override
-    public int attack() {
-        return weapon.weaponDamage();
+    public String getName() {
+        return heroName;
     }
 
-    public void getDamage(int damage) {
-        health -= damage;
+    @Override
+    public int attack(HeroImpl hero) {
+        Random rand = new Random();
+        int uron = rand.nextInt(weapon.weaponDamage() + 1);
+        hero.health -= uron;
+        return uron;
     }
 
-    public boolean diedOrNot() {
+
+
+
+    public boolean isDied() {
         return health <= 0;
     }
 
     @Override
     public String toString() {
-        return "Герой: " + HERONAME + ", здоровье: " + health + ", оружие: " + weapon.weaponName + ", урон:" + weapon.weaponDamage();
+        return "Герой: " + heroName + ", здоровье: " + health + ", оружие: " + weapon.getName() + ", урон:" + weapon.weaponDamage();
     }
 }

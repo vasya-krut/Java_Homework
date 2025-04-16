@@ -2,11 +2,11 @@ package Hero;
 
 public interface Hero {
 
-    public void getDamage(int damage);
+    boolean isDied();
 
-    public boolean diedOrNot();
+    int attack(HeroImpl hero);
 
-    public int attack();
+    int getHealth();
 
-    public int getHealth();
+    String getName();
 }

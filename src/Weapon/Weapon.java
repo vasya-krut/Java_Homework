@@ -1,5 +1,7 @@
 package Weapon;
 
 public interface Weapon {
-    public int weaponDamage();
+    int weaponDamage();
+    String getName();
+
 }

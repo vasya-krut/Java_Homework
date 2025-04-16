@@ -2,7 +2,7 @@ package Weapon;
 
 public class WeaponImpl implements Weapon{
     private final int damage;
-    public final String weaponName;
+    private final String weaponName;
 
     public WeaponImpl(int damage, String weaponName){
         this.damage = damage;
@@ -12,6 +12,11 @@ public class WeaponImpl implements Weapon{
     @Override
     public int weaponDamage() {
         return damage;
+    }
+
+    @Override
+    public String getName() {
+        return weaponName;
     }
 
     @Override

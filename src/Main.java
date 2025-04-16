@@ -43,20 +43,18 @@ public class Main {
             System.out.println(heroArray[vyborPlayer]);
             System.out.println(heroArray[vyborComp]);
 
-            int playerAttack = rand.nextInt(heroArray[vyborPlayer].attack()+1);
-            heroArray[vyborComp].getDamage(playerAttack);
-            System.out.println("Игрок нанес " + playerAttack + " урона");
 
-            if(heroArray[vyborComp].diedOrNot()) {
+
+            System.out.println("Игрок нанес " + heroArray[vyborPlayer].attack(heroArray[vyborComp]) + " урона");
+
+            if(heroArray[vyborComp].isDied()) {
                 System.out.println("Игрок победил!");
                 break;
             }
 
-            int compAttack = rand.nextInt(heroArray[vyborComp].attack()+1);
-            heroArray[vyborPlayer].getDamage(compAttack);
-            System.out.println("Компьютер нанес " + compAttack + " урона");
+            System.out.println("Компьютер нанес " + heroArray[vyborComp].attack(heroArray[vyborPlayer])  + " урона");
 
-            if(heroArray[vyborPlayer].diedOrNot()) {
+            if(heroArray[vyborPlayer].isDied()) {
                 System.out.println("Компьтер победил!");
                 break;
             }
