@@ -1,6 +1,7 @@
 package Hero;
 
-import Weapon.WeaponImpl;
+import Weapon.Weapon;
+
 
 import java.util.Random;
 
@@ -8,8 +9,8 @@ public class HeroImpl implements Hero {
 
     private int health;
     private final String heroName;
-    private final WeaponImpl weapon; //WeaponImpl - это класс, а Weapon интерфейс
-    public HeroImpl(WeaponImpl weapon, int health, String name) {
+    private final Weapon weapon;
+    public HeroImpl(Weapon weapon, int health, String name) {
         this.weapon = weapon;
         this.health = health;
         this.heroName = name;
