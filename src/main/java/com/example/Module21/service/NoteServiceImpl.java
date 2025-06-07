@@ -5,14 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.Module21.repository.NoteJpaRepository;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class NoteServiceImpl implements NoteService{
 
-    @Autowired
+
     final private NoteJpaRepository noteJpaRepository;
 
+    @Autowired
     public NoteServiceImpl(NoteJpaRepository noteJpaRepository) {
         this.noteJpaRepository = noteJpaRepository;
     }
@@ -25,10 +29,12 @@ public class NoteServiceImpl implements NoteService{
     @Override
     public String deleteNote(long id) {
         String otvet;
-        if(noteJpaRepository.existsById(id))
+        if(noteJpaRepository.existsById(id)){
             otvet = "Заметка успешно удалена";
-        else
+        }
+        else{
             otvet = "Заметки с таким идентификатором нет";
+        }
         noteJpaRepository.deleteById(id);
         return otvet;
     }
@@ -41,13 +47,21 @@ public class NoteServiceImpl implements NoteService{
             otvet = "Заметка успешно обновлена";
             noteJpaRepository.save(note);
         }
-        else
+        else{
             otvet = "Заметки с таким идентификатором нет";
+        }
         return otvet;
     }
 
     @Override
     public List<Note> showAllNotes() {
         return noteJpaRepository.findAll();
+    }
+
+    @Override
+    public Note getById(long id){
+        Optional<Note> notebyId = noteJpaRepository.findById(id);
+        if (!notebyId.isEmpty()) return notebyId.get();
+        return new Note(-1,new Date(), "Заметки с таким идентификатором нет",false);
     }
 }
