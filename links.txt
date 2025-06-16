@@ -1,0 +1,2 @@
+https://www.geeksforgeeks.org/how-to-dockerize-a-spring-boot-application-with-maven/?ysclid=mbx895hce8623565766
+https://habr.com/ru/articles/487922/
